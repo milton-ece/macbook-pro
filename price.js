@@ -45,7 +45,7 @@ function totalPrice() {
     const deliveryExpense = parseFloat(deliveryCostText);
 
     document.getElementById('total-price').innerText = basePrice + memoryPrice + storagePrice + deliveryExpense;
-
+    document.getElementById('apply-discount').innerText = document.getElementById('total-price').innerText;
 };
 
 
