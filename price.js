@@ -47,6 +47,20 @@ function totalPrice() {
     document.getElementById('total-price').innerText = basePrice + memoryPrice + storagePrice + deliveryExpense;
 
 };
+
+
+// Aply Promo Code
+function discount() {
+    totalPrice();
+    const regularPriceText = document.getElementById('total-price').innerText;
+    const regularPrice = parseFloat(regularPriceText);
+    const code = document.getElementById('promo-code').value;
+    if (code == "stevekaku") {
+        const discountedPrice = regularPrice * 0.8;
+        document.getElementById('apply-discount').innerText = discountedPrice;
+    }
+    document.getElementById("promo-code").value = " ";
+}
 // get memory input
 document.getElementById('memory-8Gb').addEventListener('click', function () {
     const extraMemory = "added8GbMemory";
@@ -89,4 +103,8 @@ document.getElementById('free-delivery').addEventListener('click', function () {
     const addDelivery = "freeDelivery";
     deliveryCharge(addDelivery);
     totalPrice();
+});
+
+document.getElementById('discount').addEventListener('click', function () {
+    discount();
 });
