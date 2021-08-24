@@ -20,12 +20,12 @@ function storagePrice(storage) {
 };
 
 // Delivery included
-
-function addDelivery(delivery) {
+function deliveryCharge(delivery) {
     if (delivery == "deliveryWithCharge") {
-        document.getElementById('quick-delivery').innerText = 20;
-    } else {
-        document.getElementById('free-delivery').innerText = 0;
+        document.getElementById('delivery-charge').innerText = 20;
+    }
+    else {
+        document.getElementById('delivery-charge').innerText = 0;
     }
 };
 
@@ -41,10 +41,10 @@ function totalPrice() {
     const storagePriceText = document.getElementById('extra-storage').innerText;
     const storagePrice = parseFloat(storagePriceText);
 
-    const deliveryChargeText = document.getElementById('delivery-charge').innerText;
-    const deliveryCharge = parseFloat(deliveryChargeText);
+    const deliveryCostText = document.getElementById('delivery-charge').innerText;
+    const deliveryExpense = parseFloat(deliveryCostText);
 
-    document.getElementById('total-price').innerText = basePrice + memoryPrice + storagePrice + deliveryCharge;
+    document.getElementById('total-price').innerText = basePrice + memoryPrice + storagePrice + deliveryExpense;
 
 };
 // get memory input
@@ -79,16 +79,14 @@ document.getElementById('ssd-1Tb').addEventListener('click', function () {
 });
 
 // Get delivery mode
-
 document.getElementById('quick-delivery').addEventListener('click', function () {
-    const deliveryCost = "deliveryWithCharge";
-    addDelivery(deliveryCost);
+    const addDelivery = "deliveryWithCharge";
+    deliveryCharge(addDelivery);
     totalPrice();
 });
 
 document.getElementById('free-delivery').addEventListener('click', function () {
-    const deliveryCost = "freeDelivery";
-    addDelivery(deliveryCost);
+    const addDelivery = "freeDelivery";
+    deliveryCharge(addDelivery);
     totalPrice();
 });
-
